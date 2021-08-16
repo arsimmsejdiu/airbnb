@@ -1,10 +1,13 @@
 import React from "react";
+import Image from "next/image";
 
-function LargeCard() {
+function LargeCard({ img, title, description, buttonText }) {
   return (
-    <div>
-      <h1>Large Card Component</h1>
-    </div>
+    <section>
+      <div className="relative h-100 min-w-[300px]">
+        <Image src={img} layout="fill" objectFit="cover" className="rounded-xl" />
+      </div>
+    </section>
   );
 }
 
