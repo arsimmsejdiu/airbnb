@@ -7,7 +7,6 @@ function MediumCard({ img, title }) {
         <Image src={img} layout="fill" />
       </div>
       <h3 className="text-2xl mt-3">{title}</h3>
-      <p>hej</p>
     </div>
   );
 }
