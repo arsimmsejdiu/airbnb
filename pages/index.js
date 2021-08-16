@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
-import Smallcard from "../components/Smallcard";
+import Smallcard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
 
 export default function Home({ exploreData, cardsData }) {
