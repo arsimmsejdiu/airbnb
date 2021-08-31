@@ -67,6 +67,9 @@ function Header() {
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
           />
+          <div>
+            
+          </div>
         </div>
       )}
     </header>
