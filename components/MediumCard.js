@@ -3,7 +3,7 @@ import Tilt from 'react-parallax-tilt';
 
 function MediumCard({ img, title }) {
   return (
-    <div className="cursor-pointer hover:scale-105 transform transition duration-300 ease-out">
+    <div className="cursor-pointer py-4 hover:scale-105 hover:text-gray-400 transform transition duration-300 ease-out">
       <Tilt options={{ max : 25 }} className="relative h-80 w-80">
         <Image src={img} layout="fill" className="rounded-xl" />
       </Tilt>

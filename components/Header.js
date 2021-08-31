@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { DateRangePicker } from 'react-date-range';
 import Image from "next/image";
 import {
   SearchIcon,
@@ -7,9 +8,17 @@ import {
   UserCircleIcon,
   UserIcon,
 } from "@heroicons/react/solid";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
+
+  const selectionRange = {
+    startDate: new Date(),
+    endDate: new Date(),
+    key: 'Selection',
+  }
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
@@ -43,12 +52,11 @@ function Header() {
         </div>
       </div>
 
-      {searchInput && (
-        <div>
-          
-        </div>
-      )}
-
+      {searchInput && <div>
+          <DateRangePicker 
+            ranges={[selectionRange]}
+          />
+        </div>}
     </header>
   );
 }

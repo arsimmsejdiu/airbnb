@@ -5,6 +5,7 @@ import Smallcard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
+import Pagination from "../components/PAgination";
 
 export default function Home({ exploreData, cardsData }) {
   return (
@@ -13,12 +14,8 @@ export default function Home({ exploreData, cardsData }) {
         <title>Airbnb</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {/* Header */}
       <Header />
-      {/* Banner */}
       <Banner />
-      {/* Main Section */}
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
@@ -35,14 +32,16 @@ export default function Home({ exploreData, cardsData }) {
           </div>
         </section>
 
-        <section>
+        <section className="pt-6">
           <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
-          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+          <div className="space-x-1 space-y-2 px-9 -ml-1 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3">
             {cardsData?.map(({ img, title }) => (
               <MediumCard key={img} img={img} title={title} />
             ))}
           </div>
         </section>
+
+        <Pagination /> 
 
         <section>
           <LargeCard
