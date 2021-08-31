@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DateRangePicker } from 'react-date-range';
+import { DateRangePicker } from "react-date-range";
 import Image from "next/image";
 import {
   SearchIcon,
@@ -13,15 +13,22 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const selectionRange = {
-    startDate: new Date(),
-    endDate: new Date(),
-    key: 'Selection',
-  }
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  };
+
+  const handleSelect = (ranges) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
 
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10  transform transition duration-300 ease-out">
       {/* left section logo */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image
@@ -32,7 +39,7 @@ function Header() {
         />
       </div>
       {/* middle section search bar */}
-      <div className="flex items-center md:border-2 rounded-full py-2  md:shadow-sm">
+      <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -52,11 +59,16 @@ function Header() {
         </div>
       </div>
 
-      {searchInput && <div>
-          <DateRangePicker 
+      {searchInput && (
+        <div className="flex flex-col col-span-3 mx-auto mt-5">
+          <DateRangePicker
             ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={["#FD5B61"]}
+            onChange={handleSelect}
           />
-        </div>}
+        </div>
+      )}
     </header>
   );
 }
