@@ -41,7 +41,7 @@ export default function Home({ exploreData, cardsData }) {
           </div>
         </section>
 
-        <Pagination /> 
+        {/* <Pagination />  */}
 
         <section>
           <LargeCard
