@@ -6,7 +6,7 @@ function Pagination() {
       <ul className="flex">
         <li className="mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg">
           <a className="flex items-center font-bold" href="#">
-            <span className="mx-1">prev</span>
+            <span className="mx-1">previous</span>
           </a>
         </li>
         <li className="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
