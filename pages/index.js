@@ -5,7 +5,7 @@ import Smallcard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
-import Pagination from "../components/PAgination";
+import Pagination from "../components/Pagination";
 
 export default function Home({ exploreData, cardsData }) {
   return (
@@ -41,7 +41,7 @@ export default function Home({ exploreData, cardsData }) {
           </div>
         </section>
 
-        {/* <Pagination />  */}
+        <Pagination /> 
 
         <section>
           <LargeCard
