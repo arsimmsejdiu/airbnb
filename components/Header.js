@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import Image from "next/image";
+import { useRouter } from "next/dist/client/router";
 import {
   SearchIcon,
   GlobeAltIcon,
@@ -11,11 +12,12 @@ import {
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
-function Header() {
+function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
 
   const selectionRange = {
     startDate: startDate,
@@ -32,11 +34,26 @@ function Header() {
     setSearchInput("");
   };
 
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
+  };
+
   return (
     //global styles at styles/global.css
     <header className="header">
       {/* left section logo */}
-      <div className="relative flex items-center w-40 h-10 cursor-pointer my-auto">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center w-40 h-10 cursor-pointer my-auto"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
@@ -51,9 +68,9 @@ function Header() {
           onChange={(e) => setSearchInput(e.target.value)}
           className="flex-grow pl-5 bg-transparent outline-none text-gray-400 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
-        <SearchIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
+        <SearchIcon className="search" />
       </div>
       {/* right section menu */}
       <div className="flex space-x-4 items-center justify-end text-gray-500">
@@ -93,7 +110,10 @@ function Header() {
             >
               Cancel
             </button>
-            <button className="flex-grow font-semibold text-red-400 ">
+            <button
+              onClick={search}
+              className="flex-grow font-semibold text-red-400 "
+            >
               Search
             </button>
           </div>
