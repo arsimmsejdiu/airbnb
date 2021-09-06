@@ -33,7 +33,8 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10  transform transition duration-300 ease-out">
+    //global styles at styles/global.css
+    <header className="header">
       {/* left section logo */}
       <div className="relative flex items-center w-40 h-10 cursor-pointer my-auto">
         <Image
