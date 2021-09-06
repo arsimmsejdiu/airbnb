@@ -15,6 +15,7 @@ function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [noOfGuests, setNoOfGuests] = useState(1);
 
   const selectionRange = {
     startDate: startDate,
@@ -27,10 +28,14 @@ function Header() {
     setEndDate(ranges.selection.endDate);
   };
 
+  const resetInput = () => {
+    setSearchInput("");
+  };
+
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10  transform transition duration-300 ease-out">
       {/* left section logo */}
-      <div className="relative flex items-center h-10 cursor-pointer my-auto">
+      <div className="relative flex items-center w-40 h-10 cursor-pointer my-auto">
         <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
@@ -67,8 +72,29 @@ function Header() {
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
           />
-          <div>
-            
+          <div className="flex items-center border-b mb-5">
+            <h2 className="text-2xl flex-grow font-semibold">
+              Number Of Guests
+            </h2>
+            <UserIcon className="h-5" />
+            <input
+              value={noOfGuests}
+              onChange={(e) => setNoOfGuests(e.target.value)}
+              min={1}
+              type="number"
+              className="w-12 pl-2 text-lg outline-none text-red-400"
+            />
+          </div>
+          <div className="flex">
+            <button
+              onClick={resetInput}
+              className="flex-grow font-semibold text-gray-500"
+            >
+              Cancel
+            </button>
+            <button className="flex-grow font-semibold text-red-400 ">
+              Search
+            </button>
           </div>
         </div>
       )}
