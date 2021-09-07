@@ -36,4 +36,8 @@
     @apply flex py-8 px-2 pr-4 border-b shadow-sm hover:shadow-lg cursor-pointer hover:opacity-80 rounded-lg
     active:bg-gray-100 transition duration-100 ease-out first:border-t;
   }
+
+  .info-card-img {
+    @apply relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 hover:scale-105 transition transform ease-out;
+  }
 }

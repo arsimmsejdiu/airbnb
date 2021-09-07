@@ -3,7 +3,7 @@ import React from "react";
 function Pagination() {
   return (
     //global styles at styles/global.css
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center p-10">
       <ul className="flex">
         <li className="mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg">
           <a className="flex items-center font-bold" href="#">
