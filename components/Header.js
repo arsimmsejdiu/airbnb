@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
+import mont from '../public/mont.png';
 import {
   SearchIcon,
   GlobeAltIcon,
@@ -52,14 +53,15 @@ function Header({ placeholder }) {
       {/* left section logo */}
       <div
         onClick={() => router.push("/")}
-        className="relative flex items-center w-40 h-10 cursor-pointer my-auto"
+        className="relative flex items-center justify-center xs:w-40 w-60 h-10 cursor-pointer my-auto animate-bounce"
       >
         <Image
-          src="https://links.papareact.com/qd3"
+          src={mont}
           layout="fill"
           objectFit="contain"
           objectPosition="left"
         />
+        <h3 className="hidden lg:inline-flex xl:inline-flex text-blue-400 font-bold animate-pulse text-xl">Alpine Hotels</h3>
       </div>
       {/* middle section search bar */}
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
