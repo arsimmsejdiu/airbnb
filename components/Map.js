@@ -1,12 +1,22 @@
 import { useState } from "react";
-import ReactMapGl from "react-map-gl";
+import ReactMapGl, { Marker, Popup } from "react-map-gl";
+import getCenter from 'geolib/es/getCenter';
 
-function Map() {
+function Map({ searchResults }) {
+  // Transform the search results object into the {long and lat} objects
+  const coordinates = searchResults.map((result) => ({
+      longitude: result.long,
+      latitude: result.lat,
+  }));
+  
+  //The latitude and longitude of the center of the location coordinates
+  const center = getCenter(coordinates);
+
   const [viewport, setViewPort] = useState({
     width: "100%",
     height: "100%",
-    latitude: 48.8566,
-    longitude: 2.3522,
+    latitude: center.latitude,
+    longitude: center.longitude,
     zoom: 11,
   });
 
@@ -16,7 +26,20 @@ function Map() {
       mapboxApiAccessToken={process.env.mapbox_key}
       {...viewport}
       onViewportChange={(nextViewPort) => setViewPort(nextViewPort)}
-    ></ReactMapGl>
+    >
+        {searchResults.map((result) => (
+            <div key={result.long}>
+                <Marker
+                    longitude={result.long}
+                    latitude={result.lat}
+                    offsetLeft={-20}
+                    offsetTop={-10}
+                >
+                    <p className="cursor-pointer text-xl animate-bounce">🏨</p>
+                </Marker>
+            </div>
+        ))}
+    </ReactMapGl>
   );
 }
 
