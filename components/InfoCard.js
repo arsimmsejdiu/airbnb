@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
+import { useRouter } from "next/dist/client/router";
 
 function InfoCard({ img, location, title, description, star, price, total }) {
+  const router = useRouter();
   return (
-    <div className="info-card">
+    <div onClick={() => router.push("/product")} className="info-card">
       <div className="info-card-img">
         <Image src={img} alt={title} layout="fill" objectFit="cover" className="rounded-2xl" />
       </div>
