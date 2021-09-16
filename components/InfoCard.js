@@ -3,12 +3,49 @@ import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/dist/client/router";
 
-function InfoCard({ img, location, title, description, star, price, total }) {
+function InfoCard({
+  img,
+  location,
+  title,
+  description,
+  star,
+  price,
+  total,
+  range,
+  noOfGuests,
+  placeholder,
+}) {
   const router = useRouter();
+  console.log(router.query);
+
+  const product = () => {
+    router.push({
+      pathname: "/product",
+      query: {
+        img: img,
+        location: location,
+        title: title,
+        description: description,
+        star: star,
+        price: price,
+        total: total,
+        range: range,
+        noOfGuests: noOfGuests,
+        placeholder: placeholder,
+      },
+    });
+  };
+
   return (
-    <div onClick={() => router.push("/product")} className="info-card">
+    <div onClick={product} className="info-card">
       <div className="info-card-img">
-        <Image src={img} alt={title} layout="fill" objectFit="cover" className="rounded-2xl" />
+        <Image
+          src={img}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-2xl"
+        />
       </div>
       <div className="flex flex-col flex-grow pl-5">
         <div className="flex justify-between">
@@ -25,11 +62,10 @@ function InfoCard({ img, location, title, description, star, price, total }) {
             {star}
           </p>
           <div>
-              <p className="text-lg lg:text-2xl font-semibold pb-2">{price}</p>
-              <p className="text-right font-extralight">{total}</p>
+            <p className="text-lg lg:text-2xl font-semibold pb-2">{price}</p>
+            <p className="text-right font-extralight">{total}</p>
           </div>
         </div>
-
       </div>
     </div>
   );

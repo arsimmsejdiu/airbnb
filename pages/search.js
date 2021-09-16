@@ -14,11 +14,12 @@ function Search({ searchResults }) {
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formattedStartDate} - ${formattedEndDate}`; //string interpolation
+  const placeholder = `${location} | ${range} | ${noOfGuests} guests`;
 
   return (
     //global styles at styles/global.css
     <div>
-      <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
+      <Header placeholder={placeholder} />
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
@@ -50,6 +51,9 @@ function Search({ searchResults }) {
                   star={star}
                   price={price}
                   total={total}
+                  range={range}
+                  noOfGuests={noOfGuests}
+                  placeholder={placeholder}
                 />
               )
             )}
