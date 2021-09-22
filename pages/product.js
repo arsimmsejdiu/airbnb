@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
+// import Modal from "../components/Modal";
 
 function product() {
   const router = useRouter();
@@ -93,7 +94,7 @@ function product() {
             <button
               type="button"
               className="bg-blue-500 text-white px-6 py-2 rounded font-medium mx-3 mt-10 hover:bg-blue-600 transition duration-200 each-in-out"
-            >
+            > 
               Book it now
             </button>
           </div>
