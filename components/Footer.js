@@ -37,7 +37,7 @@ function Footer() {
           <p>Airbnb lux</p>
         </div>
       </div>
-      <h5 className="text-gray-500 p-5 flex items-center justify-center">
+      <h5 className="text-gray-500 p-5 flex items-center justify-center bg-gray-100 rounded-lg cursor-pointer hover:underline">
         {`Copyright by ${new Date().getFullYear()} Arsim Sejdiu`}
       </h5>
     </div>

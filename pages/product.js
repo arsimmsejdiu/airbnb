@@ -49,10 +49,10 @@ function product() {
                 />
               </svg>
             </span>
-            <span>{title}</span>
+            <span className="bg-gray-100 rounded-lg p-1 hover:bg-red-50 cursor-pointer hover:underline">{title}</span>
           </div>
         </div>
-        <div className="max-w-2xl mx-auto py-20 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
+        <div className="product-layout">
           <div>
             <div className="flex justify-between">
               <p>{location}</p>
@@ -93,7 +93,7 @@ function product() {
             </div>
             <button
               type="button"
-              className="bg-blue-500 text-white px-6 py-2 rounded font-medium mx-3 mt-10 hover:bg-blue-600 transition duration-200 each-in-out"
+              className="product-button"
             > 
               Book it now
             </button>
