@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
-import mont from '../public/mont.png';
+import mont from "../public/mont.png";
 import {
   SearchIcon,
   GlobeAltIcon,
@@ -53,7 +53,7 @@ function Header({ placeholder }) {
       {/* left section logo */}
       <div
         onClick={() => router.push("/")}
-        className="relative flex items-center justify-center xs:w-40 w-60 h-10 cursor-pointer my-auto animate-bounce"
+        className="relative flex items-center justify-center xs:w-40 w-60 h-10 cursor-pointer my-auto"
       >
         <Image
           src={mont}
@@ -61,10 +61,12 @@ function Header({ placeholder }) {
           objectFit="contain"
           objectPosition="left"
         />
-        <h3 className="hidden lg:inline-flex xl:inline-flex text-blue-400 font-bold animate-pulse text-xl">Alpine Hotels</h3>
+        <h3 className="hidden lg:inline-flex xl:inline-flex text-blue-400 font-bold text-xl">
+          Alpine Hotels
+        </h3>
       </div>
       {/* middle section search bar */}
-      <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
+      <div className="flex items-center md:border-2 rounded-full py-2 shadow-sm hover:shadow-lg">
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -76,11 +78,14 @@ function Header({ placeholder }) {
       </div>
       {/* right section menu */}
       <div className="flex space-x-4 items-center justify-end text-gray-500">
-        <p className="hidden md:inline cursor-pointer">Become a host</p>
+        <p className="hidden md:inline cursor-pointer hover:underline">
+          Become a host
+        </p>
         <GlobeAltIcon className="h-6 cursor-pointer" />
-        <div className=" flex items-center border-2 rounded-full space-x-2 p-2">
-          <MenuIcon className="h-6 cursor-pointer" />
-          <UserCircleIcon className="h-6 cursor-pointer" />
+        <div className=" flex items-center space-x-2 p-2">
+          <button class="py-3 px-6 text-white rounded-lg bg-green-400 shadow-md hover:shadow-xl block md:inline-block">
+            Signin
+          </button>
         </div>
       </div>
 

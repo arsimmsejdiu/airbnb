@@ -13,6 +13,7 @@ export default function Home({ exploreData, cardsData }) {
       <Head>
         <title>Airbnb - Explore and Adventure</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"></link>
       </Head>
       <Header />
       <Banner />
